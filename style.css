@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Roboto:wght@100;300;400&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Hanken Grotesk";
+}
+
+:root {
+  --gradient-left: linear-gradient(
+    to bottom,
+    hsl(252, 100%, 67%),
+    hsl(241, 81%, 54%)
+  );
+
+  --gradient-circle: linear-gradient(
+    to bottom,
+    hsla(256, 72%, 46%, 1),
+    hsla(241, 72%, 46%, 0)
+  );
+
+  --texto-oscuro: hsl(224, 30%, 27%);
+
+  --summary-red: 0, 100%, 67%;
+  --summary-yellow: 39, 100%, 56%;
+  --summary-teal: 166, 100%, 37%;
+  --summary-blue: 234, 85%, 45%;
+}
+.container {
+  min-height: 100vh;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .content {
+    display: flex;
+    box-shadow: 10px 16px 40px 0px rgb(17 12 90 / 8%);
+    border-radius: 30px;
+    overflow: hidden;
+    :is(.left, .right) {
+      width: 368px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .left {
+      background: var(--gradient-left);
+      padding: 0 0 56px 0;
+      border-radius: 30px;
+      box-sizing: border-box;
+      color: hsl(241, 100%, 89%);
+      & h3 {
+        font-size: 25px;
+        font-weight: 700;
+        margin: 40px 0 30px 0;
+      }
+      .circle {
+        background: var(--gradient-circle);
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        font-size: 70px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: 800;
+        & span {
+          font-weight: 700;
+          font-size: 17px;
+          color: hsla(241, 100%, 89%, 0.624);
+          margin-top: -8px;
+        }
+      }
+      & h2 {
+        color: white;
+        font-size: 30px;
+        font-weight: 700;
+        margin: 30px 0 15px 0;
+      }
+      & p {
+        font-weight: 500;
+        font-size: 18px;
+        text-align: center;
+        padding: 0 60px;
+      }
+    }
+    .right {
+      border-radius: 30px;
+      box-sizing: border-box;
+      color: var(--texto-oscuro);
+      align-items: stretch;
+      padding: 0 30px;
+      font-weight: 800;
+      .title {
+        font-size: 25px;
+        font-weight: 700;
+        margin: 40px 0 30px 0;
+        text-align: left;
+        align-items: center;
+        display: flex;
+        gap: 10px;
+      }
+      .valores {
+        margin-bottom: 15px;
+        display: flex;
+        border-radius: 10px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        height: 55px;
+        .title {
+          margin: 0;
+          font-size: 18px;
+        }
+        .value {
+          color: var(--texto-oscuro);
+          & span {
+            color: hsla(224, 30%, 27%, 0.6);
+          }
+        }
+      }
+      .boton {
+        margin-top: 25px;
+        border: none;
+        background: var(--texto-oscuro);
+        height: 55px;
+        font-weight: 500;
+        font-size: 18px;
+        color: white;
+        border-radius: 30px;
+        cursor: pointer;
+        &:hover {
+          background: var(--gradient-left);
+        }
+      }
+    }
+  }
+}
+
+.red {
+  background-color: hsl(var(--summary-red), 0.1);
+  color: hsl(var(--summary-red));
+}
+.yellow {
+  background-color: hsl(var(--summary-yellow), 0.1);
+  color: hsl(var(--summary-yellow));
+}
+.green {
+  background-color: hsl(var(--summary-teal), 0.1);
+  color: hsl(var(--summary-teal));
+}
+.blue {
+  background-color: hsl(var(--summary-blue), 0.1);
+  color: hsl(var(--summary-blue));
+}
+
+@media (width <= 375px) {
+  .container {
+    .content {
+      flex-direction: column;
+      height: auto;
+      padding-bottom: 35px;
+      border-radius: 0px;
+      :is(.left, .right) {
+        width: auto;
+      }
+      .left {
+        padding-bottom: 35px;
+        border-radius: 0 0 30px 30px;
+        & h3 {
+          font-weight: 700;
+          font-size: 20px;
+          margin-top: 20px;
+        }
+        .circle {
+          width: 150px;
+          height: 150px;
+          font-size: 60px;
+          font-weight: 700;
+        }
+        & h2 {
+          font-weight: 500;
+          font-size: 25px;
+        }
+        & p {
+          padding: 0 40px;
+        }
+      }
+      .right {
+        .title {
+          font-size: 18px;
+          margin: 23px 0 23px 0;
+          font-weight: 800;
+        }
+      }
+    }
+  }
+}
+@media (width <= 270px) {
+  .container {
+    width: 270px;
+  }
+}
